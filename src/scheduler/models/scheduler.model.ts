@@ -1,4 +1,4 @@
-export interface Scheduler {
+export class Scheduler {
   id: number;
   description: string;
   finishDate: any;

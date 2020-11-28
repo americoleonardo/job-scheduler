@@ -1,6 +1,6 @@
-import { Controller, Get, Post, Put, Body } from '@nestjs/common';
-import { SchedulerService } from "./scheduler.service";
-import { Scheduler } from "./scheduler.model";
+import { Controller, Get, Post, Body } from '@nestjs/common';
+import { SchedulerService } from "../services/scheduler.service";
+import { Scheduler } from "../models/scheduler.model";
 
 @Controller('scheduler')
 export class SchedulerController {
