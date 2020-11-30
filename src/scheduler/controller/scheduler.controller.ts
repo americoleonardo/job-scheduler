@@ -7,7 +7,7 @@ export class SchedulerController {
     constructor(private schedulerService: SchedulerService) {}
 
     @Get()
-    getAll(): Scheduler[] {
+    getAll(): Array<object> {
         return this.schedulerService.getAll();
     }
 
