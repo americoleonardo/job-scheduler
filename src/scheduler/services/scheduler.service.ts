@@ -1,7 +1,8 @@
-import {Injectable, Logger} from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 import { IScheduler } from "../interfaces/services/scheduler.interface";
 import { Scheduler } from '../models/scheduler.model';
 import { v4 as uuidv4 } from 'uuid';
+import { CreateSchedulerDTO } from "../dto/CreateSchedulerDTO";
 
 @Injectable()
 export class SchedulerService implements IScheduler {
@@ -12,10 +13,12 @@ export class SchedulerService implements IScheduler {
     private queueScheduler: Array<object> = [];
 
     getAll(): Array<object> {
-      return new Array<object>();
+      return this.queueScheduler;
     }
 
-    schedule(description: string, finishDate: any, timeEstimated: number): Scheduler {
+    schedule(schedulerDTO: CreateSchedulerDTO): Scheduler {
+      const { description, finishDate, timeEstimated } = schedulerDTO;
+
       const scheduler: Scheduler = {
         id: uuidv4(),
         description,
