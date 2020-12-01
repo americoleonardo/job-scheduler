@@ -1,4 +1,4 @@
-import {Controller, Get, Post, Body, Logger, UsePipes, ValidationPipe} from '@nestjs/common';
+import { Controller, Get, Post, Body, Logger, UsePipes, ValidationPipe } from '@nestjs/common';
 import { SchedulerService } from "../services/scheduler.service";
 import { Scheduler } from "../models/scheduler.model";
 import { CreateSchedulerDTO } from "../dto/CreateSchedulerDTO";
