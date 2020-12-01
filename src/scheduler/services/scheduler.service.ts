@@ -9,10 +9,6 @@ export class SchedulerService implements IScheduler {
 
     private queueScheduler: Array<object> = [];
 
-    private executionPeriodStart: any =  new Date("2019-11-10 09:00:00");
-
-    private executionPeriodEnd: any =  new Date("2019-11-11 12:00:00");
-
     getAll(): Array<object> {
       return new Array<object>();
     }
@@ -37,6 +33,7 @@ export class SchedulerService implements IScheduler {
         return true;
       }
 
+      let hasInserted: boolean;
       this.queueScheduler.map((jobs, idx) => {
         let amountTime: number = Object(jobs).reduce((total, job) => {
           return total + Number(job.timeEstimated)
@@ -44,12 +41,16 @@ export class SchedulerService implements IScheduler {
 
         amountTime = amountTime + Number(item.timeEstimated);
 
-        if (amountTime <= this.MAX_INTERVAL) {
-            Object(jobs).push(item);
+        if (amountTime <= this.MAX_INTERVAL && !hasInserted) {
+          Object(jobs).push(item);
 
-            this.queueScheduler[idx] = jobs;
+          this.queueScheduler[idx] = jobs;
+          hasInserted = true;
         } else {
-            this.queueScheduler.push(new Array(item));
+            if (!hasInserted) {
+              this.queueScheduler.push(new Array(item));
+              hasInserted = true;
+            }
         }
       }, item);
       console.log(this.queueScheduler);
