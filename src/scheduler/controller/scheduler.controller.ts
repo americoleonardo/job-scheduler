@@ -1,6 +1,7 @@
-import {Controller, Get, Post, Body, Logger} from '@nestjs/common';
+import {Controller, Get, Post, Body, Logger, UsePipes, ValidationPipe} from '@nestjs/common';
 import { SchedulerService } from "../services/scheduler.service";
 import { Scheduler } from "../models/scheduler.model";
+import { CreateSchedulerDTO } from "../dto/CreateSchedulerDTO";
 
 @Controller('scheduler')
 export class SchedulerController {
@@ -13,12 +14,12 @@ export class SchedulerController {
     }
 
     @Post()
-    schedule(
-      @Body('description') description: string,
-      @Body('finishDate') finishDate: any,
-      @Body('timeEstimated') timeEstimated: number
+    @UsePipes(ValidationPipe)
+    public schedule(
+      @Body() schedulerDTO: CreateSchedulerDTO
     ): Scheduler {
       this.logger.log("> Schedule job has been called");
-      return this.schedulerService.schedule(description, finishDate, timeEstimated);
+
+      return this.schedulerService.schedule(schedulerDTO);
     }
 }
