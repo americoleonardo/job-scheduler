@@ -9,6 +9,10 @@ export class SchedulerService implements IScheduler {
 
     private queueScheduler: Array<object> = [];
 
+    private executionPeriodStart: any =  new Date("2019-11-10 09:00:00");
+
+    private executionPeriodEnd: any =  new Date("2019-11-11 12:00:00");
+
     getAll(): Array<object> {
       return new Array<object>();
     }
@@ -34,11 +38,9 @@ export class SchedulerService implements IScheduler {
       }
 
       this.queueScheduler.map((jobs, idx) => {
-        let amountTime: number = 0;
-
-        for (let i in jobs) {
-          amountTime = amountTime + Number(jobs[i].timeEstimated);
-        }
+        let amountTime: number = Object(jobs).reduce((total, job) => {
+          return total + Number(job.timeEstimated)
+        }, 0);
 
         amountTime = amountTime + Number(item.timeEstimated);
 
