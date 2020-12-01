@@ -1,7 +1,8 @@
 import { Scheduler } from "../../models/scheduler.model";
+import { CreateSchedulerDTO } from "../../dto/CreateSchedulerDTO";
 
 export interface IScheduler {
-    schedule(description: string, finishDate: any, timeEstimated: number): Scheduler;
+    schedule(scheduler: CreateSchedulerDTO): Scheduler;
 
     addNode(scheduler: Scheduler): boolean;
 }
