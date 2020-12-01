@@ -1,10 +1,12 @@
-import { Injectable } from '@nestjs/common';
+import {Injectable, Logger} from '@nestjs/common';
 import { IScheduler } from "../interfaces/services/scheduler.interface";
 import { Scheduler } from '../models/scheduler.model';
 import { v4 as uuidv4 } from 'uuid';
 
 @Injectable()
 export class SchedulerService implements IScheduler {
+    private readonly logger = new Logger(SchedulerService.name);
+
     private readonly MAX_INTERVAL: number = 8;
 
     private queueScheduler: Array<object> = [];
@@ -27,9 +29,11 @@ export class SchedulerService implements IScheduler {
     }
 
     addNode(item: Scheduler): boolean {
+      this.logger.log(">> Trying to add job");
       if (!this.queueScheduler.length) {
         this.queueScheduler.push(new Array(item));
 
+        this.logger.log(">> Queue without jobs. Added succesfully.");
         return true;
       }
 
@@ -53,8 +57,8 @@ export class SchedulerService implements IScheduler {
             }
         }
       }, item);
-      console.log(this.queueScheduler);
 
+      this.logger.log(">> Job added succesfully.");
       return true;
     }
 }
