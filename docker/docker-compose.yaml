@@ -1,0 +1,14 @@
+version: "3.3"
+
+services:
+  server:
+    build:
+      context: ../
+      dockerfile: ./docker/Dockerfile.dev
+    volumes:
+      - ../:/usr/src/app
+    container_name: job-scheduler
+    working_dir: /usr/src/app
+    image: job-scheduler
+    ports:
+      - "3000:3000"
