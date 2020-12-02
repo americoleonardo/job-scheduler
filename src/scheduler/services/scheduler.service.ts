@@ -31,7 +31,7 @@ export class SchedulerService implements IScheduler {
       return scheduler;
     }
 
-    addNode(item: Scheduler): boolean {
+    private addNode(item: Scheduler): boolean {
       this.logger.log(">> Trying to add job");
       if (!this.queueScheduler.length) {
         this.queueScheduler.push(new Array(item));

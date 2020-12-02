@@ -3,6 +3,4 @@ import { CreateSchedulerDTO } from "../../dto/CreateSchedulerDTO";
 
 export interface IScheduler {
     schedule(scheduler: CreateSchedulerDTO): Scheduler;
-
-    addNode(scheduler: Scheduler): boolean;
 }
