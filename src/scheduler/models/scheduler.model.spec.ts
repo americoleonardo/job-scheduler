@@ -1,43 +1,18 @@
-import { Test } from '@nestjs/testing';
-import { SchedulerService } from "./scheduler.service";
-import {CreateSchedulerDTO} from "../dto/CreateSchedulerDTO";
-import {Scheduler} from "../models/scheduler.model";
+import { Scheduler } from "./scheduler.model";
 
-describe('SchedulerService', () => {
-  let schedulerService;
+describe('SchedulerModel', () => {
+  it('verify if model has necessary attributes', () => {
+    const scheduler: Scheduler = {
+      id: 1234,
+      description: 'description',
+      finishDate: "2020-01-01 00:00:00",
+      timeEstimated: 3
+    }
 
-  beforeEach(async() => {
-    const module = await Test.createTestingModule({
-      providers: [
-        SchedulerService
-      ]
-    }).compile();
-
-    schedulerService = await module.get<SchedulerService>(SchedulerService);
-  });
-
-  it('Const MAX_INTERVAL must be scheduled to each 8 hours', () => {
-      expect(schedulerService.MAX_INTERVAL).toEqual(8);
-  });
-
-  describe ('getAll', () => {
-    it('List empty scheduler queue when application start.', () => {
-      expect(schedulerService.getAll()).toHaveLength(0);
-    });
-  });
-
-  describe ('schedule', () => {
-    it('Add item to queue and verify if was inserted.', () => {
-      const schedulerDTO: CreateSchedulerDTO = {
-        description: "description",
-        finishDate: "2020-01-01 00:00:00",
-        timeEstimated: 3
-      };
-
-      let result = schedulerService.schedule(schedulerDTO)
-      let obj: any = schedulerService.getAll();
-
-      expect(Object(obj[0][0])).toEqual(result);
-    });
+    expect(scheduler.id).toBe(1234);
+    expect(scheduler.description).toBe('description');
+    expect(scheduler.finishDate).toBe("2020-01-01 00:00:00");
+    expect(scheduler.timeEstimated).toBe(3);
   });
 });
+
