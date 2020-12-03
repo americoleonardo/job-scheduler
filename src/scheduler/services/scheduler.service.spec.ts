@@ -1,7 +1,6 @@
 import { Test } from '@nestjs/testing';
 import { SchedulerService } from "./scheduler.service";
-import {CreateSchedulerDTO} from "../dto/CreateSchedulerDTO";
-import {Scheduler} from "../models/scheduler.model";
+import { CreateSchedulerDTO } from "../dto/CreateSchedulerDTO";
 
 describe('SchedulerService', () => {
   let schedulerService;
