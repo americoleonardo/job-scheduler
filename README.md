@@ -1,6 +1,6 @@
 # Job Scheduler
 
-[![build status](https://travis-ci.com/americoleonardo/job-scheduler.svg?token=Sji86EXaLt2QvfpuiYLf&branch=main)]
+![build status](https://travis-ci.com/americoleonardo/job-scheduler.svg?token=Sji86EXaLt2QvfpuiYLf&branch=main)
 
 A challenge to order schedulling with specific parsed input data developed using NestJS framework application.
 
