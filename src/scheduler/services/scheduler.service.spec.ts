@@ -27,17 +27,36 @@ describe('SchedulerService', () => {
   });
 
   describe ('schedule', () => {
-    it('Add item to queue and verify if was inserted.', () => {
-      const schedulerDTO: CreateSchedulerDTO = {
-        description: "description",
-        finishDate: "2020-01-01 00:00:00",
-        timeEstimated: 3
-      };
+    it('Add items and validate if they was scheduled correctly.', () => {
+      let queueScheduler: Array<object> = [];
 
-      let result = schedulerService.schedule(schedulerDTO)
+      let schedulerDTO: CreateSchedulerDTO = {
+        description: "Importação de dados de integração",
+        finishDate: "2019-11-11 08:00:00",
+        timeEstimated: 6
+      };
+      let result = schedulerService.schedule(schedulerDTO);
+      queueScheduler.push([result]);
+
+      let schedulerDTO2: CreateSchedulerDTO = {
+        description: "Importação de dados da Base Legada",
+        finishDate: "2020-11-11 12:00:00",
+        timeEstimated: 4
+      };
+      result = schedulerService.schedule(schedulerDTO2);
+      queueScheduler.push([result]);
+
+      let schedulerDTO3: CreateSchedulerDTO = {
+        description: "Importação de arquivos de fundos",
+        finishDate: "2020-11-10 12:00:00",
+        timeEstimated: 2
+      };
+      result = schedulerService.schedule(schedulerDTO3);
+      Object(queueScheduler[0]).push(result);
+
       let obj: any = schedulerService.getAll();
 
-      expect(Object(obj[0][0])).toEqual(result);
+      expect(queueScheduler).toEqual(obj);
     });
   });
 });
