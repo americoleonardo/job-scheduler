@@ -9,6 +9,5 @@ before_install:
 install:
   - yarn install
   - yarn build
-script:
   - yarn run test
-after_success: yarn start:prod
+after_success: ""
