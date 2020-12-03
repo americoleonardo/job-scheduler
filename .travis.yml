@@ -9,5 +9,5 @@ before_install:
 install:
   - yarn install
   - yarn build
-  - yarn run test
+  - yarn test
 after_success: ""
