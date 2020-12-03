@@ -9,7 +9,6 @@ before_install:
 install:
   - yarn install
   - yarn build
-  - yarn start:prod
 script:
   - yarn run test
-after_success: yarn run test:cov
+after_success: yarn start:prod
