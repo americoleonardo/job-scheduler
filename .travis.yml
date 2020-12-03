@@ -8,6 +8,7 @@ before_install:
   - npm i -g yarn
 install:
   - yarn install
+  - yarn build
   - yarn start:prod
 script:
   - yarn run test
