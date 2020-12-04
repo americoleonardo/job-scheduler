@@ -40,3 +40,16 @@ $ yarn run test:cov
 ```
 http://localhost:3000/api
 ```
+
+## Challenge file disposition
+
+```
+job-scheduler/
+|── src/
+│ ├── module
+│   ├── dto
+│   ├── interfaces
+│   ├── module.controller.ts
+│   ├── module.service.ts
+
+```
