@@ -1,0 +1,254 @@
+{
+	"info": {
+		"_postman_id": "e7b2d7f7-0a76-4793-b804-b01b12fd2a8c",
+		"name": "job-scheduler",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Scenario steps",
+			"item": [
+				{
+					"name": "1. List all objects",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/scheduler",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"scheduler"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2. Send first object",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "chave",
+								"type": "text",
+								"value": "m65tC6ZEmHbJZryIBVNl00V5C1qE9Ec6/LyjQx1IwOU="
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "description",
+									"value": "Importação de dados de integração",
+									"type": "text"
+								},
+								{
+									"key": "finishDate",
+									"value": "2019-11-11 08:00:00",
+									"type": "text"
+								},
+								{
+									"key": "timeEstimated",
+									"value": "6",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3000/scheduler",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"scheduler"
+							]
+						},
+						"description": "```\n{\n  \"ID\": 3,\n  \"Descrição\": \"Importação de dados de integração\",\n  \"Data Máxima de conclusão\": 2019-11-11 08:00:00,\n  \"Tempo estimado\": 6 horas,\n}\n```"
+					},
+					"response": []
+				},
+				{
+					"name": "3. Send second object",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "chave",
+								"type": "text",
+								"value": "m65tC6ZEmHbJZryIBVNl00V5C1qE9Ec6/LyjQx1IwOU="
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "description",
+									"value": "Importação de dados da Base Legada",
+									"type": "text"
+								},
+								{
+									"key": "finishDate",
+									"value": "2019-11-11 12:00:00",
+									"type": "text"
+								},
+								{
+									"key": "timeEstimated",
+									"value": "4",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3000/scheduler",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"scheduler"
+							]
+						},
+						"description": "```\n{\n  \"ID\": 2,\n  \"Descrição\": \"Importação de dados da Base Legada\",\n  \"Data Máxima de conclusão\": 2019-11-11 12:00:00,\n  \"Tempo estimado\": 4 horas,\n}\n```"
+					},
+					"response": []
+				},
+				{
+					"name": "4. Send third object",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "chave",
+								"type": "text",
+								"value": "m65tC6ZEmHbJZryIBVNl00V5C1qE9Ec6/LyjQx1IwOU="
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "localhost:3000/scheduler",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"scheduler"
+							]
+						},
+						"description": "```\n{\n  \"ID\": 1,\n  \"Descrição\": \"Importação de arquivos de fundos\",\n  \"Data Máxima de conclusão\": 2019-11-10 12:00:00,\n  \"Tempo estimado\": 2 horas,\n}\n```"
+					},
+					"response": []
+				},
+				{
+					"name": "5. FInal result",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/scheduler",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"scheduler"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Send to queue",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "chave",
+						"type": "text",
+						"value": "m65tC6ZEmHbJZryIBVNl00V5C1qE9Ec6/LyjQx1IwOU="
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "description",
+							"value": "23311",
+							"type": "text"
+						},
+						{
+							"key": "finishDate",
+							"value": "123",
+							"type": "text"
+						},
+						{
+							"key": "timeEstimated",
+							"value": "4",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/scheduler",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"scheduler"
+					]
+				},
+				"description": "Lista as franquias da Guarida"
+			},
+			"response": []
+		},
+		{
+			"name": "List objects",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/scheduler",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"scheduler"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
