@@ -13,6 +13,7 @@ export class JobsService implements IJobs {
     private queueJobs: Array<object> = [];
 
     getAll(): Array<object> {
+      this.logger.log(">> Get jobs queue has been called.");
       return this.queueJobs;
     }
 
