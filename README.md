@@ -2,6 +2,8 @@
 
 ![build status](https://travis-ci.com/americoleonardo/job-scheduler.svg?token=Sji86EXaLt2QvfpuiYLf&branch=main)
 
+## Description
+
 A challenge to order schedulling with specific parsed input data developed using NestJS framework application.
 
 ## Installation
@@ -41,6 +43,15 @@ $ yarn run test:cov
 http://localhost:3000/api
 ```
 
+## Build compodoc structure
+
+```
+$ npx @compodoc/compodoc -p tsconfig.json -s
+
+# Browse at /documentation
+```
+
+
 ## Challenge file disposition
 
 ```
@@ -53,3 +64,4 @@ job-scheduler/
 │   ├── module.service.ts
 
 ```
+
