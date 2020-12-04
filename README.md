@@ -34,3 +34,9 @@ $ yarn run test
 # test coverage
 $ yarn run test:cov
 ```
+
+## Swagger API
+
+```
+http://localhost:3000/api
+```
