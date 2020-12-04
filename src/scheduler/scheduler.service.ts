@@ -1,8 +1,8 @@
 import { Injectable, Logger } from '@nestjs/common';
-import { IScheduler } from "../interfaces/services/scheduler.interface";
-import { Scheduler } from '../models/scheduler.model';
+import { IScheduler } from "./interfaces/services/scheduler.interface";
+import { Scheduler } from './models/scheduler.model';
 import { v4 as uuidv4 } from 'uuid';
-import { CreateSchedulerDTO } from "../dto/CreateSchedulerDTO";
+import { CreateSchedulerDTO } from "./dto/CreateSchedulerDTO";
 
 @Injectable()
 export class SchedulerService implements IScheduler {

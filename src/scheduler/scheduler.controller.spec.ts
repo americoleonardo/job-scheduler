@@ -1,7 +1,7 @@
 import { SchedulerController } from './scheduler.controller';
-import { SchedulerService } from '../services/scheduler.service';
-import { Scheduler } from "../models/scheduler.model";
-import { CreateSchedulerDTO } from "../dto/CreateSchedulerDTO";
+import { SchedulerService } from './scheduler.service';
+import { Scheduler } from "./models/scheduler.model";
+import { CreateSchedulerDTO } from "./dto/CreateSchedulerDTO";
 
 describe('SchedulerController', () => {
   let schedulerController: SchedulerController;
