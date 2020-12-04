@@ -14,13 +14,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:3000/scheduler",
+							"raw": "localhost:3000/jobs",
 							"host": [
 								"localhost"
 							],
 							"port": "3000",
 							"path": [
-								"scheduler"
+								"jobs"
 							]
 						}
 					},
@@ -63,13 +63,13 @@
 							]
 						},
 						"url": {
-							"raw": "localhost:3000/scheduler",
+							"raw": "localhost:3000/jobs",
 							"host": [
 								"localhost"
 							],
 							"port": "3000",
 							"path": [
-								"scheduler"
+								"jobs"
 							]
 						},
 						"description": "```\n{\n  \"ID\": 3,\n  \"Descrição\": \"Importação de dados de integração\",\n  \"Data Máxima de conclusão\": 2019-11-11 08:00:00,\n  \"Tempo estimado\": 6 horas,\n}\n```"
@@ -113,13 +113,13 @@
 							]
 						},
 						"url": {
-							"raw": "localhost:3000/scheduler",
+							"raw": "localhost:3000/jobs",
 							"host": [
 								"localhost"
 							],
 							"port": "3000",
 							"path": [
-								"scheduler"
+								"jobs"
 							]
 						},
 						"description": "```\n{\n  \"ID\": 2,\n  \"Descrição\": \"Importação de dados da Base Legada\",\n  \"Data Máxima de conclusão\": 2019-11-11 12:00:00,\n  \"Tempo estimado\": 4 horas,\n}\n```"
@@ -144,16 +144,32 @@
 						],
 						"body": {
 							"mode": "urlencoded",
-							"urlencoded": []
+							"urlencoded": [
+								{
+									"key": "description",
+									"value": "Importação de arquivos de fundos",
+									"type": "text"
+								},
+								{
+									"key": "finishDate",
+									"value": "2019-11-10 12:00:00",
+									"type": "text"
+								},
+								{
+									"key": "timeEstimated",
+									"value": "2",
+									"type": "text"
+								}
+							]
 						},
 						"url": {
-							"raw": "localhost:3000/scheduler",
+							"raw": "localhost:3000/jobs",
 							"host": [
 								"localhost"
 							],
 							"port": "3000",
 							"path": [
-								"scheduler"
+								"jobs"
 							]
 						},
 						"description": "```\n{\n  \"ID\": 1,\n  \"Descrição\": \"Importação de arquivos de fundos\",\n  \"Data Máxima de conclusão\": 2019-11-10 12:00:00,\n  \"Tempo estimado\": 2 horas,\n}\n```"
@@ -166,13 +182,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:3000/scheduler",
+							"raw": "localhost:3000/jobs",
 							"host": [
 								"localhost"
 							],
 							"port": "3000",
 							"path": [
-								"scheduler"
+								"jobs"
 							]
 						}
 					},
@@ -202,32 +218,31 @@
 					"urlencoded": [
 						{
 							"key": "description",
-							"value": "23311",
+							"value": "Insert your description",
 							"type": "text"
 						},
 						{
 							"key": "finishDate",
-							"value": "123",
+							"value": "2020-01-01 08:00:00",
 							"type": "text"
 						},
 						{
 							"key": "timeEstimated",
-							"value": "4",
+							"value": "6",
 							"type": "text"
 						}
 					]
 				},
 				"url": {
-					"raw": "localhost:3000/scheduler",
+					"raw": "localhost:3000/jobs",
 					"host": [
 						"localhost"
 					],
 					"port": "3000",
 					"path": [
-						"scheduler"
+						"jobs"
 					]
-				},
-				"description": "Lista as franquias da Guarida"
+				}
 			},
 			"response": []
 		},
@@ -237,13 +252,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/scheduler",
+					"raw": "localhost:3000/jobs",
 					"host": [
 						"localhost"
 					],
 					"port": "3000",
 					"path": [
-						"scheduler"
+						"jobs"
 					]
 				}
 			},

@@ -1,9 +1,9 @@
 import { IsNotEmpty } from "class-validator";
 import { ApiProperty } from '@nestjs/swagger';
 
-export class CreateSchedulerDTO {
+export class CreateJobsDTO {
     @ApiProperty({
-      description: 'Description of scheduler',
+      description: 'Description of jobs',
       minimum: 1,
       default: 'Scheduler example'
     })
@@ -11,7 +11,7 @@ export class CreateSchedulerDTO {
     public description: string;
 
     @ApiProperty({
-      description: 'Timestamp of scheduler',
+      description: 'Timestamp of jobs',
       default: '2020-11-11 08:00:00'
     })
     @IsNotEmpty()

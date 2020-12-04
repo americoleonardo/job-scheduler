@@ -1,47 +1,47 @@
 import { Injectable, Logger } from '@nestjs/common';
-import { IScheduler } from "./interfaces/services/scheduler.interface";
-import { Scheduler } from './models/scheduler.model';
+import { IJobs } from "./interfaces/services/jobs.interface";
+import { Jobs } from './models/jobs.model';
 import { v4 as uuidv4 } from 'uuid';
-import { CreateSchedulerDTO } from "./dto/CreateSchedulerDTO";
+import { CreateJobsDTO } from "./dto/CreateJobsDTO";
 
 @Injectable()
-export class SchedulerService implements IScheduler {
-    private readonly logger = new Logger(SchedulerService.name);
+export class JobsService implements IJobs {
+    private readonly logger = new Logger(JobsService.name);
 
     private readonly MAX_INTERVAL: number = 8;
 
-    private queueScheduler: Array<object> = [];
+    private queueJobs: Array<object> = [];
 
     getAll(): Array<object> {
-      return this.queueScheduler;
+      return this.queueJobs;
     }
 
-    schedule(schedulerDTO: CreateSchedulerDTO): Scheduler {
-      const { description, finishDate, timeEstimated } = schedulerDTO;
+    schedule(jobsDTO: CreateJobsDTO): Jobs {
+      const { description, finishDate, timeEstimated } = jobsDTO;
 
-      const scheduler: Scheduler = {
+      const jobs: Jobs = {
         id: uuidv4(),
         description,
         finishDate,
         timeEstimated
       };
 
-      this.addNode(scheduler);
+      this.addNode(jobs);
 
-      return scheduler;
+      return jobs;
     }
 
-    private addNode(item: Scheduler): boolean {
+    private addNode(item: Jobs): boolean {
       this.logger.log(">> Trying to add job");
-      if (!this.queueScheduler.length) {
-        this.queueScheduler.push(new Array(item));
+      if (!this.queueJobs.length) {
+        this.queueJobs.push(new Array(item));
 
         this.logger.log(">> Queue without jobs. Added succesfully.");
         return true;
       }
 
       let hasInserted: boolean;
-      this.queueScheduler.map((jobs, idx) => {
+      this.queueJobs.map((jobs, idx) => {
         let amountTime: number = Object(jobs).reduce((total, job) => {
           return total + Number(job.timeEstimated)
         }, 0);
@@ -51,11 +51,11 @@ export class SchedulerService implements IScheduler {
         if (amountTime <= this.MAX_INTERVAL && !hasInserted) {
           Object(jobs).push(item);
 
-          this.queueScheduler[idx] = jobs;
+          this.queueJobs[idx] = jobs;
           hasInserted = true;
         } else {
             if (!hasInserted) {
-              this.queueScheduler.push(new Array(item));
+              this.queueJobs.push(new Array(item));
               hasInserted = true;
             }
         }

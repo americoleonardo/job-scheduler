@@ -6,7 +6,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   const options = new DocumentBuilder()
-    .setTitle('Job scheduler')
+    .setTitle('Job')
     .setDescription('A challenge to order schedulling with specific parsed input data developed using NestJS framework application.')
     .setVersion('1.0')
     .build();

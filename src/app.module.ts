@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
-import { SchedulerModule } from './scheduler/scheduler.module';
+import { JobsModule } from './jobs/jobs.module';
 
 @Module({
-  imports: [SchedulerModule]
+  imports: [JobsModule]
 })
 export class AppModule {}
