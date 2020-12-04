@@ -14,12 +14,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:3000/jobs",
+							"raw": "localhost:3000/api/v1/jobs",
 							"host": [
 								"localhost"
 							],
 							"port": "3000",
 							"path": [
+								"api",
+								"v1",
 								"jobs"
 							]
 						}
@@ -63,12 +65,14 @@
 							]
 						},
 						"url": {
-							"raw": "localhost:3000/jobs",
+							"raw": "localhost:3000/api/v1/jobs",
 							"host": [
 								"localhost"
 							],
 							"port": "3000",
 							"path": [
+								"api",
+								"v1",
 								"jobs"
 							]
 						},
@@ -113,12 +117,14 @@
 							]
 						},
 						"url": {
-							"raw": "localhost:3000/jobs",
+							"raw": "localhost:3000/api/v1/jobs",
 							"host": [
 								"localhost"
 							],
 							"port": "3000",
 							"path": [
+								"api",
+								"v1",
 								"jobs"
 							]
 						},
@@ -163,12 +169,14 @@
 							]
 						},
 						"url": {
-							"raw": "localhost:3000/jobs",
+							"raw": "localhost:3000/api/v1/jobs",
 							"host": [
 								"localhost"
 							],
 							"port": "3000",
 							"path": [
+								"api",
+								"v1",
 								"jobs"
 							]
 						},
@@ -182,12 +190,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:3000/jobs",
+							"raw": "localhost:3000/api/v1/jobs",
 							"host": [
 								"localhost"
 							],
 							"port": "3000",
 							"path": [
+								"api",
+								"v1",
 								"jobs"
 							]
 						}
