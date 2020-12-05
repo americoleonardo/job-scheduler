@@ -9,7 +9,7 @@ A challenge to order schedulling with specific parsed input data developed using
 ## Installation
 
 ```bash
-$ npm install
+$ yarn install
 ```
 
 ## Job Scheduler
